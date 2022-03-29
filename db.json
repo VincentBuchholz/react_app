@@ -1,0 +1,16 @@
+{
+  "drinks": [
+    {
+      "strDrink": "Doctors Appointment",
+      "strInstructions": "4 parts vodka, 1 part soda of choice",
+      "strDrinkThumb": "https://i.dailymail.co.uk/i/pix/2018/01/25/22/48958BFA00000578-5313533-image-a-13_1516920026749.jpg",
+      "id": 1
+    },
+    {
+      "strDrink": "Jägersoldat",
+      "strInstructions": "En krydret, sød og syrlig drink, som passer til enhver lejlighed. Drinken egner sig specielt godt til de varme sommerdage i haven. Jägersoldat har fået sit navn pga. den grønne farve godt kunne minde om camouflage.",
+      "strDrinkThumb": "https://tendercrate.com/wp-content/uploads/2019/04/Jagersoldat.jpg",
+      "id": 2
+    }
+  ]
+}

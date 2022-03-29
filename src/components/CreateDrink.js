@@ -12,7 +12,7 @@ const CreateDrink = () => {
             strInstructions: instr,
             strDrinkThumb: imgUrl
         }
-            const res = await fetch('http://localhost:5000/drinks', {
+            const res = await fetch('http://localhost:5001/drinks', {
                 method: 'POST',
                 headers: {
                     'Content-type': 'application/json'
@@ -25,6 +25,7 @@ const CreateDrink = () => {
     return (
         <>
             <form>
+                <h3>Create drink:</h3>
                 <label>Drink name:</label>
                 <input type={"text"} onChange={(e) => setDrinkName(e.target.value)}/><br/><br/>
                 <label>Image url:</label>
