@@ -5,15 +5,22 @@ const CreateDrink = () => {
     const[imgUrl,setImgUrl] = useState();
     const[instr,setInstr] = useState();
 
-    const persistDrink = (e) => {
+    const persistDrink = async (e) => {
         e.preventDefault()
         const drink ={
             strDrink:  drinkName,
             strInstructions: instr,
             strDrinkThumb: imgUrl
         }
-
-    }
+            const res = await fetch('http://localhost:5000/drinks', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(drink)
+            })
+            const data = await res.json()
+        }
 
     return (
         <>
