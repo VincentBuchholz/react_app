@@ -2,6 +2,8 @@ import RandomDrink from "./components/RandomDrink";
 import SearchDrink from "./components/SearchDrink";
 import {useState} from "react";
 import DisplayDrink from "./components/DisplayDrink";
+import CreateDrink from "./components/CreateDrink";
+
 
 export default function App() {
   const[drink,setDrink] = useState();
@@ -28,5 +30,6 @@ export default function App() {
     <DisplayDrink drink={drink}
     imgUrl={imgUrl}
     instr={instr}/>
+    <CreateDrink/>
   </>
 }
