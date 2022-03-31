@@ -18,5 +18,10 @@
 .card-container:hover {
     transform: scale(1.05);
 }
+.column {
+    float: left;
+    width: 50%;
+
+}
 
 
