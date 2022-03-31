@@ -13,7 +13,7 @@
       "id": 3
     },
     {
-      "strDrink": "Tomato Tangswss",
+      "strDrink": "Tomato Tang",
       "strInstructions": "Place all ingredients in the blender jar - cover and whiz on medium speed until well blended. Pour in one tall, 2 medium or 3 small glasses and drink up.",
       "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/869qr81487603278.jpg",
       "id": 4
@@ -23,12 +23,6 @@
       "strInstructions": "En krydret, sød og syrlig drink, som passer til enhver lejlighed. Drinken egner sig specielt godt til de varme sommerdage i haven. Jägersoldat har fået sit navn pga. den grønne farve godt kunne minde om camouflage.",
       "strDrinkThumb": "https://tendercrate.com/wp-content/uploads/2019/04/Jagersoldat.jpg",
       "id": 5
-    },
-    {
-      "strDrink": "nmjnjujmkmmkmkm",
-      "strInstructions": "njjnjnjnmjk",
-      "strDrinkThumb": "klmkkmk",
-      "id": 6
     }
   ]
 }

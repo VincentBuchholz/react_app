@@ -24,6 +24,7 @@ export default function App() {
 
     const [showEdit,setShowEdit] =useState(false);
     const [showAddDrink, setShowAddDrink] = useState(false)
+    const [showDrink, setShowDrink] = useState(false)
 
     useEffect(() => {
         const getUserDrinks = () => {
@@ -87,6 +88,7 @@ export default function App() {
                      setImgUrl={setImgUrl}
                      instr={instr}
                      setInstr={setInstr}
+                     setShowDrink={setShowDrink}
 
         />
         <SearchDrink searchInput={searchInput}
@@ -94,11 +96,12 @@ export default function App() {
                      setDrink={setDrink}
                      setImgUrl={setImgUrl}
                      instr={instr}
-                     setInstr={setInstr}/>
+                     setInstr={setInstr}
+                     setShowDrink={setShowDrink}/>
 
-        <DisplayDrink drink={drink}
+        {showDrink &&<DisplayDrink strDrink={drink}
                       imgUrl={imgUrl}
-                      instr={instr}/>
+                      instr={instr}/>}
 
         <button className={"btn"} onClick={() => {
                     setShowAddDrink(!showAddDrink)

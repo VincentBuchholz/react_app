@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import PropTypes from 'prop-types'
 import {FaTimes, FaMarker} from 'react-icons/fa'
 
 
 const DisplayDrink = ({drink, id, strDrink, imgUrl, instr, onDelete, setDrinkToUpdate, setUpdatedDrink,setShowEdit,setShowAddDrink}) => {
+
+
     return (
         <div className="card-container">
 
@@ -22,9 +24,9 @@ const DisplayDrink = ({drink, id, strDrink, imgUrl, instr, onDelete, setDrinkToU
                                                                         onClick={() => onDelete(id)}/></p>
                 </div>
             </div>
-            <h3>{strDrink}</h3>
-            <img alt={"No img found"} src={imgUrl} width={200} height={200}/>
-            <h4>Instructions:</h4>
+          <h3>{strDrink}</h3>
+                <img alt={"No img found"} src={imgUrl} width={200} height={200}/>
+                <h4>Instructions:</h4>
             <p>{instr}</p>
         </div>
 

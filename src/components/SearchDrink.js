@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const SearchDrink = ({searchInput,setSearchInput, setDrink, setImgUrl,setInstr}) => {
+const SearchDrink = ({searchInput,setSearchInput, setDrink, setImgUrl,setInstr,setShowDrink}) => {
 const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
     const updateSearchInput = (e) =>{
@@ -8,6 +8,7 @@ const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
     }
 
     const search = async (e) =>{
+    setShowDrink(true)
     e.preventDefault()
         await fetch(URL+searchInput)
             .then(res => res.json())
