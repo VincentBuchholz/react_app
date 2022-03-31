@@ -1,22 +1,12 @@
 import React, {useEffect, useState} from 'react';
 
-const CreateDrink = ({setUserDrinks, userDrinks}) => {
+const CreateDrink = ({createDrink}) => {
     const initialState = {strDrink: "", strInstructions: "", strDrinkThumb: ""};
     const [drink, setDrink] = useState(initialState);
     //setDrink(initialState)
 
 
-    const persistDrink = async (d) => {
-        setUserDrinks([...userDrinks, drink]);
-        const res = await fetch('http://localhost:5001/drinks', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify(d)
-        })
-        const data = await res.json()
-    }
+
 
     const handleInput = (event) => {
         const target = event.target
@@ -27,7 +17,7 @@ const CreateDrink = ({setUserDrinks, userDrinks}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        persistDrink(drink);
+        createDrink(drink);
         setDrink(initialState);
     }
 

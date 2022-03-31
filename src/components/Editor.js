@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 
 
-const Editor = ({editDrink , drink,updatedDrink, setUpdatedDrink}) => {
+const Editor = ({editDrink , drink,updatedDrink, setUpdatedDrink, setShowEdit}) => {
     const initialState = {id:"",strDrink: "", strInstructions: "", strDrinkThumb: ""};
 
     const handleInput = (event) => {
@@ -14,15 +14,9 @@ const Editor = ({editDrink , drink,updatedDrink, setUpdatedDrink}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log(drink.id + JSON.stringify(updatedDrink))
-        editDrink(updatedDrink)
+        editDrink(updatedDrink);
         setUpdatedDrink(initialState);
-
-
-
-
-
+        setShowEdit(false);
     }
 
     return (

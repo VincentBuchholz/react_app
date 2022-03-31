@@ -65,6 +65,17 @@ export default function App() {
     const data = await res.json();
         setUserDrinks(userDrinks.map((element) => element.id === drink.id ? {...drink} : element))
 }
+    const createDrink = async (drink) => {
+        const res = await fetch('http://localhost:5001/drinks', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(drink)
+        })
+        const data = await res.json()
+        setUserDrinks([...userDrinks, data])
+    }
 
 
     console.log(JSON.stringify(userDrinks))
@@ -89,11 +100,15 @@ export default function App() {
                       imgUrl={imgUrl}
                       instr={instr}/>
 
-        <button className={"btn"} onClick={() => setShowAddDrink(!showAddDrink)}style={{backgroundColor:showAddDrink ? 'red':'#4CAF50'}}>{showAddDrink ? 'Close':'Create new drink'}</button>
-        {showAddDrink && <CreateDrink setUserDrinks={setUserDrinks} userDrinks={userDrinks}/>}
+        <button className={"btn"} onClick={() => {
+                    setShowAddDrink(!showAddDrink)
+                    setShowEdit(false)
+                }}
+                style={{backgroundColor:showAddDrink ? 'red':'#4CAF50'}}>{showAddDrink ? 'Close':'Create new drink'}</button>
+        {showAddDrink && <CreateDrink setUserDrinks={setUserDrinks} userDrinks={userDrinks} createDrink={createDrink}/>}
 
-        {showEdit && <Editor editDrink={editDrink} drink={drinkToUpdate} setUpdatedDrink={setUpdatedDrink} updatedDrink={updatedDrink}/>}
+        {showEdit && <Editor editDrink={editDrink} drink={drinkToUpdate} setUpdatedDrink={setUpdatedDrink} updatedDrink={updatedDrink} setShowEdit={setShowEdit}/>}
 
-        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} onDelete={deleteDrink} setDrinkToUpdate={setDrinkToUpdate} setUpdatedDrink={setUpdatedDrink} setShowEdit={setShowEdit}/>
+        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} onDelete={deleteDrink} setDrinkToUpdate={setDrinkToUpdate} setUpdatedDrink={setUpdatedDrink} setShowEdit={setShowEdit} setShowAddDrink={setShowAddDrink}/>
     </div>
 }
