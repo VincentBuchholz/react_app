@@ -1,9 +1,12 @@
 import RandomDrink from "./components/RandomDrink";
 import SearchDrink from "./components/SearchDrink";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import DisplayDrink from "./components/DisplayDrink";
 import CreateDrink from "./components/CreateDrink";
-import SelectUserDrinks from "./components/SelectUserDrinks";
+import ListUserDrinks from "./components/ListUserDrinks";
+import './styles/drink.css'
+import './styles/App.css'
+import './styles/drink-list.css'
 
 
 export default function App() {
@@ -13,7 +16,24 @@ export default function App() {
   const [searchInput, setSearchInput] = useState();
   const [userDrinks, setUserDrinks] = useState();
 
-  return <>
+  useEffect(()=>{
+const getUserDrinks = () => {
+  fetch("http://localhost:5001/drinks")
+      .then(res => res.json())
+      .then(data => {
+        setUserDrinks(data)
+      })
+      .catch(err => console.log(err))
+}
+
+getUserDrinks();
+
+  },[setUserDrinks])
+
+
+  console.log(JSON.stringify(userDrinks))
+
+  return <div className="App">
   <RandomDrink drink={drink}
                setDrink={setDrink}
                imgUrl={imgUrl}
@@ -32,7 +52,7 @@ export default function App() {
     <DisplayDrink drink={drink}
     imgUrl={imgUrl}
     instr={instr}/>
-    <CreateDrink/>
-    <SelectUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} />
-  </>
+    <CreateDrink setUserDrinks={setUserDrinks} userDrinks={userDrinks}/>
+    <ListUserDrinks  userDrinks={userDrinks} setUserDrinks={setUserDrinks} />
+  </div>
 }

@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-const CreateDrink = () => {
+const CreateDrink = ({setUserDrinks,userDrinks}) => {
     const[drinkName,setDrinkName] = useState();
     const[imgUrl,setImgUrl] = useState();
     const[instr,setInstr] = useState();
+
+
 
     const persistDrink = async (e) => {
         e.preventDefault()
@@ -12,6 +14,7 @@ const CreateDrink = () => {
             strInstructions: instr,
             strDrinkThumb: imgUrl
         }
+        setUserDrinks([...userDrinks,drink]);
             const res = await fetch('http://localhost:5001/drinks', {
                 method: 'POST',
                 headers: {

@@ -11,6 +11,12 @@
       "strInstructions": "En krydret, sød og syrlig drink, som passer til enhver lejlighed. Drinken egner sig specielt godt til de varme sommerdage i haven. Jägersoldat har fået sit navn pga. den grønne farve godt kunne minde om camouflage.",
       "strDrinkThumb": "https://tendercrate.com/wp-content/uploads/2019/04/Jagersoldat.jpg",
       "id": 2
+    },
+    {
+      "strDrink": "Screwdriver",
+      "strInstructions": "Add 2 parts vodka and 4 parts orangejuice",
+      "strDrinkThumb": "https://mixthatdrink.com/wp-content/uploads/2009/02/screwdriver-drink-pin-1365x2048.jpg.webp",
+      "id": 3
     }
   ]
 }
