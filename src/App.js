@@ -7,6 +7,8 @@ import ListUserDrinks from "./components/ListUserDrinks";
 import './styles/drink.css'
 import './styles/App.css'
 import './styles/drink-list.css'
+import './styles/form.css'
+
 
 
 export default function App() {
@@ -29,6 +31,13 @@ export default function App() {
         getUserDrinks();
 
     }, [setUserDrinks])
+
+    //Delete Drink
+    const deleteDrink = async (id) => {
+        await fetch(`http://localhost:5001/drinks/${id}`, {method: 'DELETE',})
+        setUserDrinks(userDrinks.filter((drink) => drink.id !== id))
+        console.log(id)
+    }
 
 
     console.log(JSON.stringify(userDrinks))
@@ -53,6 +62,6 @@ export default function App() {
                       imgUrl={imgUrl}
                       instr={instr}/>
         <CreateDrink setUserDrinks={setUserDrinks} userDrinks={userDrinks}/>
-        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks}/>
+        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} onDelete={deleteDrink}/>
     </div>
 }

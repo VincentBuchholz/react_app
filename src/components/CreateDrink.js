@@ -39,11 +39,9 @@ const CreateDrink = ({setUserDrinks, userDrinks}) => {
         <>
             <form onChange={handleInput} onSubmit={handleSubmit}>
                 <h3>Create drink:</h3>
-                <label>Drink name:</label>
-                <input type={"text"} id="strDrink" value={drink.strDrink}/><br/><br/>
-                <label>Image url:</label>
-                <input type={"text"} id="strDrinkThumb" value={drink.strDrinkThumb}/><br/><br/>
-                <label>Instruction:</label> <br/>
+                <input type={"text"} id="strDrink" value={drink.strDrink} placeholder="Drink name"/><br/><br/>
+                <input type={"text"} id="strDrinkThumb" value={drink.strDrinkThumb} placeholder="Image url"/><br/><br/>
+                <label htmlFor="strInstructions">Instruction:</label> <br/>
                 <textarea rows="4" cols="50" id="strInstructions" value={drink.strInstructions}/><br/>
                 <button type={"submit"}>Create</button>
             </form>

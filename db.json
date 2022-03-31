@@ -23,24 +23,6 @@
       "strInstructions": "Place all ingredients in the blender jar - cover and whiz on medium speed until well blended. Pour in one tall, 2 medium or 3 small glasses and drink up.",
       "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/869qr81487603278.jpg",
       "id": 4
-    },
-    {
-      "strDrink": "testt",
-      "strDrinkThumb": "https://madensverden.dk/wp-content/uploads/2020/06/drinks-til-studenterfesten-sommerdrinks.jpg",
-      "strInstructions": "wdwdwdw",
-      "id": 5
-    },
-    {
-      "strDrink": "dwdwdw",
-      "strDrinkThumb": "https://shake-it.dk/wp-content/uploads/2020/10/Paloma-1-scaled-e1603292604897-1024x875.jpg",
-      "strInstructions": "wdwdww",
-      "id": 6
-    },
-    {
-      "strDrink": "dwdwd",
-      "strInstructions": "dwdwwd",
-      "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/dgj92f1616098672.jpg",
-      "id": 7
     }
   ]
 }
