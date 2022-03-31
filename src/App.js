@@ -18,11 +18,12 @@ export default function App() {
     const [instr, setInstr] = useState();
     const [searchInput, setSearchInput] = useState();
     const [userDrinks, setUserDrinks] = useState([{id: "", strDrink: "", strInstructions: "", strDrinkThumb: ""}]);
-    const [showEdit,setShowEdit] =useState(false);
     const[drinkToUpdate,setDrinkToUpdate] =useState({id: "", strDrink: "", strInstructions: "", strDrinkThumb: ""})
-
     const initialState = {id:"",strDrink: "", strInstructions: "", strDrinkThumb: ""};
     const[updatedDrink, setUpdatedDrink] = useState(initialState);
+
+    const [showEdit,setShowEdit] =useState(false);
+    const [showAddDrink, setShowAddDrink] = useState(false)
 
     useEffect(() => {
         const getUserDrinks = () => {
@@ -87,8 +88,12 @@ export default function App() {
         <DisplayDrink drink={drink}
                       imgUrl={imgUrl}
                       instr={instr}/>
-        <CreateDrink setUserDrinks={setUserDrinks} userDrinks={userDrinks}/>
-        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} onDelete={deleteDrink} setDrinkToUpdate={setDrinkToUpdate} setUpdatedDrink={setUpdatedDrink}/>
-        <Editor editDrink={editDrink} drink={drinkToUpdate} setUpdatedDrink={setUpdatedDrink} updatedDrink={updatedDrink}/>
+
+        <button className={"btn"} onClick={() => setShowAddDrink(!showAddDrink)}style={{backgroundColor:showAddDrink ? 'red':'#4CAF50'}}>{showAddDrink ? 'Close':'Create new drink'}</button>
+        {showAddDrink && <CreateDrink setUserDrinks={setUserDrinks} userDrinks={userDrinks}/>}
+
+        {showEdit && <Editor editDrink={editDrink} drink={drinkToUpdate} setUpdatedDrink={setUpdatedDrink} updatedDrink={updatedDrink}/>}
+
+        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} onDelete={deleteDrink} setDrinkToUpdate={setDrinkToUpdate} setUpdatedDrink={setUpdatedDrink} setShowEdit={setShowEdit}/>
     </div>
 }

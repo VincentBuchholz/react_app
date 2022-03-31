@@ -23,6 +23,12 @@
       "strInstructions": "En krydret, sød og syrlig drink, som passer til enhver lejlighed. Drinken egner sig specielt godt til de varme sommerdage i haven. Jägersoldat har fået sit navn pga. den grønne farve godt kunne minde om camouflage.",
       "strDrinkThumb": "https://tendercrate.com/wp-content/uploads/2019/04/Jagersoldat.jpg",
       "id": 5
+    },
+    {
+      "strDrink": "testthhh",
+      "strInstructions": "qwdqnjdjnwqdjniwqdnj iw",
+      "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/g1vnbe1493067747.jpg",
+      "id": 7
     }
   ]
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {FaTimes, FaMarker} from 'react-icons/fa'
 
 
-const DisplayDrink = ({drink, id, strDrink, imgUrl, instr, onDelete, setDrinkToUpdate, setUpdatedDrink}) => {
+const DisplayDrink = ({drink, id, strDrink, imgUrl, instr, onDelete, setDrinkToUpdate, setUpdatedDrink,setShowEdit}) => {
     return (
         <div className="card-container">
 
@@ -12,6 +12,8 @@ const DisplayDrink = ({drink, id, strDrink, imgUrl, instr, onDelete, setDrinkToU
                     <p style={{margin: 0, textAlign:"left"}}><FaMarker style={{cursor: 'pointer'}} onClick={() => {
                         setDrinkToUpdate(drink)
                         setUpdatedDrink(drink)
+                        setShowEdit(true)
+
                     }}/></p>
                 </div>
                 <div className="column">
