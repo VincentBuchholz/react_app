@@ -1,11 +1,10 @@
 .card-list .card-container {
     display: flex;
     flex-direction: column;
-    background-color: #95dada;
+    background-image: linear-gradient(to right bottom, #c3d6f2, #b4cdf0, #a5c4ee, #96bbeb, #86b2e9);
     border: 1px solid grey;
     border-radius: 5px;
     padding: 25px;
-    cursor: pointer;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);

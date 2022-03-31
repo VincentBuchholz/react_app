@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
 const CreateDrink = ({setUserDrinks, userDrinks}) => {
-    const [drinkName, setDrinkName] = useState();
-    const [imgUrl, setImgUrl] = useState();
-    const [instr, setInstr] = useState();
-
     const initialState = {strDrink: "", strInstructions: "", strDrinkThumb: ""};
     const [drink, setDrink] = useState(initialState);
     //setDrink(initialState)

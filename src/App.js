@@ -8,6 +8,7 @@ import './styles/drink.css'
 import './styles/App.css'
 import './styles/drink-list.css'
 import './styles/form.css'
+import Editor from "./components/Editor";
 
 
 
@@ -17,6 +18,11 @@ export default function App() {
     const [instr, setInstr] = useState();
     const [searchInput, setSearchInput] = useState();
     const [userDrinks, setUserDrinks] = useState([{id: "", strDrink: "", strInstructions: "", strDrinkThumb: ""}]);
+    const [showEdit,setShowEdit] =useState(false);
+    const[drinkToUpdate,setDrinkToUpdate] =useState({id: "", strDrink: "", strInstructions: "", strDrinkThumb: ""})
+
+    const initialState = {id:"",strDrink: "", strInstructions: "", strDrinkThumb: ""};
+    const[updatedDrink, setUpdatedDrink] = useState(initialState);
 
     useEffect(() => {
         const getUserDrinks = () => {
@@ -32,12 +38,32 @@ export default function App() {
 
     }, [setUserDrinks])
 
+    // Fetch task
+    const fetchDrink = async (id) => {
+        const res = await fetch(`http://localhost:5001/drinks/${id}`)
+        const data = await res.json()
+
+        return data
+    }
+
     //Delete Drink
     const deleteDrink = async (id) => {
         await fetch(`http://localhost:5001/drinks/${id}`, {method: 'DELETE',})
         setUserDrinks(userDrinks.filter((drink) => drink.id !== id))
         console.log(id)
     }
+    //edit drink
+    const editDrink = async (drink) => {
+        const res = await fetch(`http://localhost:5001/drinks/${drink.id}`, {
+        method: 'PUT',
+            headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(drink)
+    })
+    const data = await res.json();
+        setUserDrinks(userDrinks.map((element) => element.id === drink.id ? {...drink} : element))
+}
 
 
     console.log(JSON.stringify(userDrinks))
@@ -62,6 +88,7 @@ export default function App() {
                       imgUrl={imgUrl}
                       instr={instr}/>
         <CreateDrink setUserDrinks={setUserDrinks} userDrinks={userDrinks}/>
-        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} onDelete={deleteDrink}/>
+        <ListUserDrinks userDrinks={userDrinks} setUserDrinks={setUserDrinks} onDelete={deleteDrink} setDrinkToUpdate={setDrinkToUpdate} setUpdatedDrink={setUpdatedDrink}/>
+        <Editor editDrink={editDrink} drink={drinkToUpdate} setUpdatedDrink={setUpdatedDrink} updatedDrink={updatedDrink}/>
     </div>
 }
