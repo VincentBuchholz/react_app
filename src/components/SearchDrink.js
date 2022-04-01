@@ -1,23 +1,15 @@
 import React, {useState} from 'react';
 
-const SearchDrink = ({searchInput,setSearchInput, setDrink, setImgUrl,setInstr,setShowDrink}) => {
-const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
+const SearchDrink = ({searchInput,setSearchInput,searchDrink}) => {
+
 
     const updateSearchInput = (e) =>{
         setSearchInput(e.target.value)
     }
 
     const search = async (e) =>{
-    setShowDrink(true)
-    e.preventDefault()
-        await fetch(URL+searchInput)
-            .then(res => res.json())
-            .then(data => {
-                    setDrink(data.drinks[0].strDrink)
-                    setImgUrl(data.drinks[0].strDrinkThumb)
-                    setInstr(data.drinks[0].strInstructions)
-            })
-            .catch(err => console.log(err))
+        e.preventDefault()
+        searchDrink(searchInput)
     }
 
     return (

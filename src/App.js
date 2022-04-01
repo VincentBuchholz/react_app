@@ -25,7 +25,10 @@ export default function App() {
     const [showEdit,setShowEdit] =useState(false);
     const [showAddDrink, setShowAddDrink] = useState(false)
     const [showDrink, setShowDrink] = useState(false)
+    const URL = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s="
 
+
+    //Get user drinks
     useEffect(() => {
         const getUserDrinks = () => {
             fetch("http://localhost:5001/drinks")
@@ -40,12 +43,26 @@ export default function App() {
 
     }, [setUserDrinks])
 
-    // Fetch task
+    // Fetch drink
     const fetchDrink = async (id) => {
         const res = await fetch(`http://localhost:5001/drinks/${id}`)
         const data = await res.json()
 
         return data
+    }
+
+    //Search for a drink by name
+    const searchDrink = async (searchInput) =>{
+        setShowDrink(true)
+        await fetch(URL+searchInput)
+            .then(res => res.json())
+            .then(data => {
+                setDrink(data.drinks[0].strDrink)
+                setImgUrl(data.drinks[0].strDrinkThumb)
+                setInstr(data.drinks[0].strInstructions)
+            })
+            .catch(err => console.log(err))
+
     }
 
     //Delete Drink
@@ -93,11 +110,7 @@ export default function App() {
         />
         <SearchDrink searchInput={searchInput}
                      setSearchInput={setSearchInput}
-                     setDrink={setDrink}
-                     setImgUrl={setImgUrl}
-                     instr={instr}
-                     setInstr={setInstr}
-                     setShowDrink={setShowDrink}/>
+                     searchDrink={searchDrink}/>
 
         {showDrink &&<DisplayDrink strDrink={drink}
                       imgUrl={imgUrl}
